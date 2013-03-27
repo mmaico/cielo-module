@@ -1,12 +1,15 @@
 package br.com.kohen.module.cielo.entity;
 
+import br.com.kohen.module.cielo.enums.IndicatorSecurityCode;
+
 public class CieloCard {
 
 	private String number;
 	
-	private String securityCode;
-	
 	private String validity;
+	
+	private IndicatorSecurityCode securityCode;
+	
 
 	public String getNumber() {
 		return number;
@@ -14,14 +17,6 @@ public class CieloCard {
 
 	public void setNumber(String number) {
 		this.number = number;
-	}
-
-	public String getSecurityCode() {
-		return securityCode;
-	}
-
-	public void setSecurityCode(String securityCode) {
-		this.securityCode = securityCode;
 	}
 
 	public String getValidity() {
@@ -32,4 +27,12 @@ public class CieloCard {
 		this.validity = validity;
 	}
 
+	public IndicatorSecurityCode getSecurityCode() {
+		return securityCode;
+	}
+
+	public void setSecurityCode(IndicatorSecurityCode securityCode) {
+		this.securityCode = securityCode;
+	}
+	
 }
