@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao versao="1.2.0" id="6560a94c-663b-4aec-9a45-e45f278e00b4" xmlns="http://ecommerce.cbmp.com.br">
+	<dados-ec>
+		<numero>$transaction.bEstablishment.number</numero>
+		<chave>$transaction.bEstablishment.key</chave>
+	</dados-ec>
+	<dados-pedido>
+		<numero>$transaction.order.number</numero>
+		<valor>$transaction.order.amount</valor>
+		<moeda>$transaction.order.currency.getCode()</moeda>
+		<data-hora>$transaction.order.date</data-hora>
+		<idioma>$transaction.order.lang.getName()</idioma>
+	</dados-pedido>
+	<forma-pagamento>
+		<bandeira>$transaction.payment.creditCardType.getType()</bandeira>
+		<produto>$transaction.payment.product.toString()</produto>
+		<parcelas>$transaction.payment.plots</parcelas>
+	</forma-pagamento>
+	<url-retorno>$transaction.urlToReturn</url-retorno>
+	<autorizar>1</autorizar>
+	<capturar>true</capturar>
+</requisicao-transacao>
