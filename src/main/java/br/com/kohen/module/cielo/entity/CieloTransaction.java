@@ -1,15 +1,32 @@
 package br.com.kohen.module.cielo.entity;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang.builder.EqualsBuilder;
+
+import br.com.kohen.module.cielo.utils.PropertiesAcessor;
+import br.com.kohen.module.cielo.utils.XmlTemplateReader;
+import br.com.kohen.module.cielo.utils.XmlTemplateUtils;
+
 public class CieloTransaction {
 
+	private String id;
 	private String urlAuthentication;
 	private String urlToReturn;
 	private String tid;
 	private short status;
 	private String pan;
+	
 	private CieloOrder order;
+	
 	private BusinessEstablishment bEstablishment;
 	private CieloPayment payment;
+	private Boolean capture = Boolean.FALSE;
+	
+	public CieloTransaction() {
+		this.urlToReturn = PropertiesAcessor.load().getProperty("cielo.url.to.return");
+	}
 	
 	public String getUrlAuthentication() {
 		return urlAuthentication;
@@ -75,4 +92,64 @@ public class CieloTransaction {
 		this.urlToReturn = urlToReturn;
 	}
 	
+	public Boolean getCapture() {
+		return capture;
+	}
+
+	public void setCapture(Boolean capture) {
+		this.capture = capture;
+	}
+
+	public static CieloTransaction build() {
+		return new CieloTransaction();
+	}
+	
+	public CieloTransaction withUrlToReturn(String url) {
+		this.urlToReturn = url;
+		return this;
+	}
+	
+	public CieloTransaction withOrder(CieloOrder order) {
+		this.order = order;
+		return this;
+	}
+	
+	public CieloTransaction withBusinessEstablishment(BusinessEstablishment establishment) {
+		this.bEstablishment = establishment;
+		return this;
+	}
+	
+	public CieloTransaction withPayment(CieloPayment payment) {
+		this.payment = payment;
+		return this;
+	}
+	
+	public CieloTransaction capture() {
+		this.capture = Boolean.TRUE;
+		return this;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String toXml() {
+		String template = XmlTemplateReader.getTemplateTransactionByPageCielo();
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("transaction", this);
+		
+		return XmlTemplateUtils.mergeTemplateIntoString(template, params);
+	}
+	
+	public static CieloTransaction nullObject() {
+		return new CieloTransaction();
+	}
+	
+	public Boolean isNullObject() {
+		return EqualsBuilder.reflectionEquals(this, new CieloTransaction());
+	}
 }

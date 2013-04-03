@@ -12,6 +12,7 @@ public class CieloOrder {
 	private Date date;
 	private Language lang;
 	private Currency currency;
+	private String description;
 	
 	public String getNumber() {
 		return number;
@@ -42,6 +43,41 @@ public class CieloOrder {
 	}
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
+	}
+	
+	public static CieloOrder build() {
+		return new CieloOrder();
+	}
+	
+	public CieloOrder withNumber(String number) {
+		this.number = number;
+		return this;
+	}
+	
+	public CieloOrder withAmount(Long amount) {
+		this.amount = amount;
+		return this;
+	}
+	
+	public CieloOrder withCurrency(Currency currency) {
+		this.currency = currency;
+		return this;
+	}
+	
+	public CieloOrder withDate(Date dateTransaction) {
+		this.date = dateTransaction;
+		return this;
+	}
+	
+	public CieloOrder withLang(Language lang) {
+		this.lang = lang;
+		return this;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

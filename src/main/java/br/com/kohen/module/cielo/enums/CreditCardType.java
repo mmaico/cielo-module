@@ -15,10 +15,10 @@ public enum CreditCardType {
 	}
 
 	public String getType() {
-		return type;
+		return type.toUpperCase();
 	}
 
-	public CreditCardType get(String type) {
+	public static CreditCardType get(String type) {
 		
 		for (CreditCardType typeEnum : values()) {
 			

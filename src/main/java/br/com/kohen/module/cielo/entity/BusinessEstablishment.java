@@ -1,15 +1,20 @@
 package br.com.kohen.module.cielo.entity;
 
+import br.com.kohen.module.cielo.utils.PropertiesAcessor;
+
 
 public class BusinessEstablishment {
 
-	private long number;
+	private String number;
 	
 	private String key;
 
-	private BusinessEstablishment(){}
+	private BusinessEstablishment(){
+		this.number = PropertiesAcessor.load().getProperty("cielo.establishment.number");
+		this.key = PropertiesAcessor.load().getProperty("cielo.establishment.key");
+	}
 	
-	public long getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
@@ -17,8 +22,17 @@ public class BusinessEstablishment {
 		return key;
 	}
 	
-	public BusinessEstablishment build() {
-		
-		return null;
+	public static BusinessEstablishment build() {
+		return new BusinessEstablishment();
+	}
+	
+	public  BusinessEstablishment withNumber(String number) {
+		this.number = number;
+		return this;
+	}
+	
+	public  BusinessEstablishment withKey(String key) {
+		this.key = key;
+		return this;
 	}
 }

@@ -26,6 +26,6 @@ public enum Language {
 	}
 
 	public String getName() {
-		return this.toString().toLowerCase();
+		return this.toString().toUpperCase();
 	}
 }
