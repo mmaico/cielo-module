@@ -18,7 +18,7 @@
 			<artifactId>fluent-hc</artifactId>
 			<version>4.2.3</version>
 		</dependency>
-		
+
 		<!-- UNITS TEST -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -52,15 +52,20 @@
 			<version>0.2.0</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- XML -->	
-		
+
+		<dependency>
+			<groupId>xmlunit</groupId>
+			<artifactId>xmlunit</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- XML -->
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
 			<version>1.4.4</version>
 		</dependency>
-		
+
 		<!-- Template -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
