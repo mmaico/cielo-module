@@ -8,15 +8,15 @@
 		<numero>$transaction.order.number</numero>
 		<valor>$transaction.order.amount</valor>
 		<moeda>$transaction.order.currency.getCode()</moeda>
-		<data-hora>$transaction.order.date</data-hora>
+		<data-hora>$dateUtil.dateToIso($transaction.order.date)</data-hora>
 		<idioma>$transaction.order.lang.getName()</idioma>
 	</dados-pedido>
 	<forma-pagamento>
 		<bandeira>$transaction.payment.creditCardType.getType()</bandeira>
-		<produto>$transaction.payment.product.toString()</produto>
+		<produto>$transaction.payment.modality.getCode()</produto>
 		<parcelas>$transaction.payment.plots</parcelas>
 	</forma-pagamento>
 	<url-retorno>$transaction.urlToReturn</url-retorno>
 	<autorizar>1</autorizar>
-	<capturar>true</capturar>
+	<capturar>$transaction.capture</capturar>
 </requisicao-transacao>

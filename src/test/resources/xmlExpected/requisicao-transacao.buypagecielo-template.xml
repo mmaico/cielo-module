@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao versao="1.2.0" id="6560a94c-663b-4aec-9a45-e45f278e00b4" xmlns="http://ecommerce.cbmp.com.br">
+	<dados-ec>
+		<numero>1234</numero>
+		<chave>chave</chave>
+	</dados-ec>
+	<dados-pedido>
+		<numero>12345</numero>
+		<valor>100</valor>
+		<moeda>986</moeda>
+		<data-hora>2013-12-07T11:43:37</data-hora>
+		<idioma>PT</idioma>
+	</dados-pedido>
+	<forma-pagamento>
+		<bandeira>VISA</bandeira>
+		<produto>A</produto>
+		<parcelas>1</parcelas>
+	</forma-pagamento>
+	<url-retorno>http://localhost/back</url-retorno>
+	<autorizar>1</autorizar>
+	<capturar>false</capturar>
+</requisicao-transacao>
