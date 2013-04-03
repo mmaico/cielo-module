@@ -2,7 +2,6 @@ package br.com.kohen.module.cielo.entity;
 
 import br.com.kohen.module.cielo.enums.CreditCardType;
 import br.com.kohen.module.cielo.enums.Modality;
-import br.com.kohen.module.cielo.enums.Product;
 
 public class CieloPayment {
 
@@ -13,8 +12,6 @@ public class CieloPayment {
 	private Modality modality;
 	
 	private Integer plots = 1;
-	
-	private Product product;
 	
 	
 	public CreditCardType getCreditCardType() {
@@ -48,12 +45,24 @@ public class CieloPayment {
 	public void setCard(CieloCard card) {
 		this.card = card;
 	}
-
-	public Product getProduct() {
-		return product;
+	
+	public static CieloPayment build() {
+		return new CieloPayment();
 	}
-
-	public void setProduct(Product product) {
-		this.product = product;
+	
+	public CieloPayment withCreditCardType(CreditCardType type) {
+		this.creditCardType = type;
+		return this;
 	}
+	
+	public CieloPayment withModality(Modality modality) {
+		this.modality = modality;
+		return this;
+	}
+	
+	public CieloPayment withPlots(Integer quantityPlots) {
+		this.plots = quantityPlots;
+		return this;
+	}
+	
 }
