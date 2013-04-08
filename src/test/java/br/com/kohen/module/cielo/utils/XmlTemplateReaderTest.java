@@ -1,13 +1,15 @@
 package br.com.kohen.module.cielo.utils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.hamcrest.Matchers;
 import org.junit.Test;
+
+import br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction;
 
 public class XmlTemplateReaderTest {
 
@@ -16,9 +18,9 @@ public class XmlTemplateReaderTest {
 	public void shouldReturnTheTemplateOfTransactionByCieloPage() throws IOException {
 		InputStream inputStream = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
 		
-		String contentTemplate = XmlTemplateReader.getTemplateTransactionByPageCielo();
+		String contentTemplate = XmlTemplateReader.get(TemplateTransaction.NEW);
 		
-		assertThat(contentTemplate, Matchers.containsString(IOUtils.toString(inputStream)));
+		assertThat(contentTemplate, containsString(IOUtils.toString(inputStream)));
 	}
 
 }

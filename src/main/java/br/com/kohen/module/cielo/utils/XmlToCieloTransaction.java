@@ -35,6 +35,8 @@ public class XmlToCieloTransaction {
 		
 		xStream.aliasAttribute(CieloTransaction.class, "id", "id");
 		xStream.aliasAttribute(CieloTransaction.class, "order", "dados-pedido");
+		xStream.aliasAttribute(CieloTransaction.class, "urlAuthentication", "url-autenticacao");
+		xStream.aliasAttribute(CieloTransaction.class, "payment", "forma-pagamento");
 		
 		xStream.aliasAttribute(CieloOrder.class, "date", "data-hora");
 		xStream.aliasAttribute(CieloOrder.class, "number", "numero");
@@ -43,14 +45,9 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(CieloOrder.class, "lang", "idioma");
 		xStream.aliasAttribute(CieloOrder.class, "description", "descricao");
 		
-		xStream.aliasAttribute(CieloTransaction.class, "payment", "forma-pagamento");
 		xStream.aliasAttribute(CieloPayment.class, "creditCardType", "bandeira");
 		xStream.aliasAttribute(CieloPayment.class, "modality", "produto");
 		xStream.aliasAttribute(CieloPayment.class, "plots", "parcelas");
-		
-		
-		xStream.aliasAttribute(CieloTransaction.class, "urlAuthentication", "url-autenticacao");
-		
 	}
 	
 	public static XmlToCieloTransaction getInstance() {

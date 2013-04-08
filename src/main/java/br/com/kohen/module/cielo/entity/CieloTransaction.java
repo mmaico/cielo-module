@@ -7,6 +7,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 
 import br.com.kohen.module.cielo.utils.PropertiesAcessor;
 import br.com.kohen.module.cielo.utils.XmlTemplateReader;
+import br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction;
 import br.com.kohen.module.cielo.utils.XmlTemplateUtils;
 
 public class CieloTransaction {
@@ -137,8 +138,8 @@ public class CieloTransaction {
 		this.id = id;
 	}
 
-	public String toXml() {
-		String template = XmlTemplateReader.getTemplateTransactionByPageCielo();
+	public String toXml(TemplateTransaction templateTransaction) {
+		String template = XmlTemplateReader.get(templateTransaction);
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("transaction", this);
 		

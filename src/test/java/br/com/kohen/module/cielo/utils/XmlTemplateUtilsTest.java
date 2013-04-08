@@ -25,6 +25,7 @@ import br.com.kohen.module.cielo.enums.CreditCardType;
 import br.com.kohen.module.cielo.enums.Currency;
 import br.com.kohen.module.cielo.enums.Language;
 import br.com.kohen.module.cielo.enums.Modality;
+import br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction;
 
 public class XmlTemplateUtilsTest {
 
@@ -38,7 +39,7 @@ public class XmlTemplateUtilsTest {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("transaction", transactionStub);
 		
-		String templateTransactionByPageCielo = XmlTemplateReader.getTemplateTransactionByPageCielo();
+		String templateTransactionByPageCielo = XmlTemplateReader.get(TemplateTransaction.NEW);
 		
 		String templateDone = XmlTemplateUtils.mergeTemplateIntoString(templateTransactionByPageCielo, params);
 		

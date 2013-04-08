@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-consulta versao="1.2.0" id="$transaction.id" xmlns="http://ecommerce.cbmp.com.br">
+	<tid>$transaction.tid</tid>
+	<dados-ec>
+		<numero>$transaction.bEstablishment.number</numero>
+		<chave>$transaction.bEstablishment.key</chave>
+	</dados-ec>
+</requisicao-consulta>

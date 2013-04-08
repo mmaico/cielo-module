@@ -1,11 +1,14 @@
 package br.com.kohen.module.cielo.ws.impl;
 
+import static br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction.NEW;
+
 import java.io.IOException;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Form;
 import org.apache.http.client.fluent.Request;
 
+import br.com.kohen.module.cielo.entity.BusinessEstablishment;
 import br.com.kohen.module.cielo.entity.CieloResponse;
 import br.com.kohen.module.cielo.entity.CieloTransaction;
 import br.com.kohen.module.cielo.exception.ConnectionFailedException;
@@ -25,7 +28,7 @@ public class CieloWebServiceImpl implements CieloWebService {
 		try {
 			content = Request.Post(URL_WS)
 					.connectTimeout(_CONNECTION_TIMEOUT)
-					.bodyForm(Form.form().add("mensagem", transaction.toXml()).build())
+					.bodyForm(Form.form().add("mensagem", transaction.toXml(NEW)).build())
 					.execute().returnContent().asString();
 			
 		} catch (ClientProtocolException e) {
@@ -35,6 +38,11 @@ public class CieloWebServiceImpl implements CieloWebService {
 		}
 		
 		return CieloResponse.build(content);
+	}
+
+	public CieloResponse findTransaction(String tid, BusinessEstablishment bEstablishment) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -2,6 +2,8 @@ package br.com.kohen.module.cielo.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
@@ -9,15 +11,26 @@ import br.com.kohen.module.cielo.exception.XmlTemplateNotFoundException;
 
 public class XmlTemplateReader {
 
-	public XmlTemplateReader() {}
+	private static Map<TemplateTransaction, String> templates = new HashMap<TemplateTransaction, String>();
 	
-	public static String getTemplateTransactionByPageCielo() {
-		InputStream inputStream = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
+	public enum TemplateTransaction {
+		NEW, CHECK 
+	}
+	
+	static {
+		InputStream inputNewTransaction = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
+		InputStream inputCheckTrasaction = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
+		
 		try {
-			return IOUtils.toString(inputStream);
+			templates.put(TemplateTransaction.NEW, IOUtils.toString(inputNewTransaction));
+			templates.put(TemplateTransaction.CHECK, IOUtils.toString(inputCheckTrasaction));
 		} catch (IOException e) {
 			throw new XmlTemplateNotFoundException(e);
 		}
+	}
+	
+	public static String get(TemplateTransaction template) {
+		return templates.get(template);
 	}
 
 }
