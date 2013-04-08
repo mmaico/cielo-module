@@ -19,7 +19,7 @@ public class XmlTemplateReader {
 	
 	static {
 		InputStream inputNewTransaction = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
-		InputStream inputCheckTrasaction = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
+		InputStream inputCheckTrasaction = XmlTemplateReader.class.getResourceAsStream("/requisicao-consulta-template.xml");
 		
 		try {
 			templates.put(TemplateTransaction.NEW, IOUtils.toString(inputNewTransaction));

@@ -2,10 +2,7 @@ package br.com.kohen.module.cielo.ws.impl;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static se.dannej.fakehttpserver.expect.ResponseActions.sendContent;
-import static se.dannej.fakehttpserver.expect.ResponseActions.sendStatus;
-import static se.dannej.fakehttpserver.expect.matcher.RequestMatchers.content;
-import static se.dannej.fakehttpserver.expect.matcher.RequestMatchers.path;
+import static org.mockito.BDDMockito.given;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -13,16 +10,19 @@ import java.util.Calendar;
 
 import javax.xml.bind.DatatypeConverter;
 
-import org.junit.After;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.fluent.Content;
+import org.apache.http.client.fluent.Form;
+import org.apache.http.client.fluent.Request;
+import org.apache.http.client.fluent.Response;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.Mock;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
-import se.dannej.fakehttpserver.FakeHttpServer;
-import se.dannej.fakehttpserver.JettyFakeServer;
-import se.dannej.fakehttpserver.expect.Expectations;
 import br.com.kohen.module.cielo.entity.BusinessEstablishment;
 import br.com.kohen.module.cielo.entity.CieloOrder;
 import br.com.kohen.module.cielo.entity.CieloPayment;
@@ -34,44 +34,42 @@ import br.com.kohen.module.cielo.enums.Currency;
 import br.com.kohen.module.cielo.enums.Language;
 import br.com.kohen.module.cielo.enums.Modality;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Request.class})
 public class CieloWebServiceImplTest {
 
 	private static final String URL = "https://qasecommerce.cielo.com.br/servicos/ecommwsec.do";
 	
 	@InjectMocks CieloWebServiceImpl service;
 	
-	private FakeHttpServer server = new JettyFakeServer(3000);
-
-	@Before
-	public void setUp() {
-		this.server.start();
-	}
+	@Mock Request requestMock;
 	
-	@After
-	public void tearDown() {
-		this.server.stop();
+	@Mock Response responseMock;
+	
+	@Mock Content contectMock;
+	
+	@Before
+	public void setUp() throws ClientProtocolException, IOException {
+		
+		given(Request.Post(URL)).willReturn(requestMock);
+		given(this.requestMock.connectTimeout(10000)).willReturn(requestMock);
+		
+		given(this.requestMock.execute()).willReturn(this.responseMock);
+		given(this.responseMock.returnContent()).willReturn(this.contectMock);
+		
 	}
 	
 	@Test
 	public void shouldCallToCreateANewTrasacation() throws IOException, ParseException {
+		
 		String urlAuthentication = "https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251";
 		String tid = "10017348980735271001";
+		String templateToSend = ReadXmlToTest.read("/xmlExpected/requisicao-transacao.buypagecielo-template.xml");
+		String returnWillBe = ReadXmlToTest.read("/xmlReturn/newTrasaction-success-buy-cielo-page-return.xml");
 		
-		final String templateToSend = ReadXmlToTest.read("/xmlExpected/requisicao-transacao.buypagecielo-template.xml");
-		final String returnWillBe = ReadXmlToTest.read("/xmlReturn/newTrasaction-success-buy-cielo-page-return.xml");
-		
-		new Expectations() {{
-			oneOf(CieloWebServiceImplTest.this.server).post().with(
-					path(URL),
-					content(templateToSend)
-					);
-			will(
-					sendStatus(200),
-					sendContent(returnWillBe)
-					);
-		}};
-		
+		given(this.requestMock.bodyForm(Form.form().add("mensagem", templateToSend).build())).willReturn(requestMock);
+		given(this.contectMock.asString()).willReturn(returnWillBe);
+
 		CieloResponse newTransaction = service.newTransaction(getTransactionStub());
 		
 		CieloTransaction transaction = newTransaction.getTransaction();

@@ -125,6 +125,11 @@ public class CieloTransaction {
 		return this;
 	}
 	
+	public CieloTransaction withTid(String tid) {
+		this.tid = tid;
+		return this;
+	}
+	
 	public CieloTransaction capture() {
 		this.capture = Boolean.TRUE;
 		return this;
@@ -140,6 +145,7 @@ public class CieloTransaction {
 
 	public String toXml(TemplateTransaction templateTransaction) {
 		String template = XmlTemplateReader.get(templateTransaction);
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("transaction", this);
 		

@@ -1,5 +1,6 @@
 package br.com.kohen.module.cielo.ws.impl;
 
+import static br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction.CHECK;
 import static br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction.NEW;
 
 import java.io.IOException;
@@ -41,8 +42,24 @@ public class CieloWebServiceImpl implements CieloWebService {
 	}
 
 	public CieloResponse findTransaction(String tid, BusinessEstablishment bEstablishment) {
-		// TODO Auto-generated method stub
-		return null;
+//		String content = "";
+//		try {
+//			CieloTransaction transaction = CieloTransaction.build()
+//				.withBusinessEstablishment(bEstablishment)
+//				.withTid(tid);
+//			
+//			content = Request.Post(URL_WS)
+//					.connectTimeout(_CONNECTION_TIMEOUT)
+//					.bodyForm(Form.form().add("mensagem", transaction.toXml(CHECK)).build())
+//					.execute().returnContent().asString();
+//			
+//		} catch (ClientProtocolException e) {
+//			throw new ConnectionFailedException(e);
+//		} catch (IOException e) {
+//			throw new ConnectionFailedException(e);
+//		}
+//		
+		return null;//CieloResponse.build(content);
 	}
 
 }
