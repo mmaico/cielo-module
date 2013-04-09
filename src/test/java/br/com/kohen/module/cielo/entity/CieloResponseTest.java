@@ -12,7 +12,7 @@ public class CieloResponseTest {
 
 	private String messageError = "<erro xmlns=\"http://ecommerce.cbmp.com.br\">" 
 								+ "		<codigo>002</codigo>"
-								+ "		<mensagem>Credenciais inv‡lidas.</mensagem>"
+								+ "		<mensagem>Credenciais invalidas.</mensagem>"
 								+ "	</erro>";
 	
 	@Test

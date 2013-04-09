@@ -12,7 +12,7 @@
 		<idioma>$transaction.order.lang.getName()</idioma>
 	</dados-pedido>
 	<forma-pagamento>
-		<bandeira>$transaction.payment.creditCardType.getType().toLowerCase()</bandeira>
+		<bandeira>$transaction.payment.creditCardType.getType()</bandeira>
 		<produto>$transaction.payment.modality.getCode()</produto>
 		<parcelas>$transaction.payment.plots</parcelas>
 	</forma-pagamento>

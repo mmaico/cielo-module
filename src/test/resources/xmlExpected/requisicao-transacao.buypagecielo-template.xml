@@ -12,7 +12,7 @@
 		<idioma>PT</idioma>
 	</dados-pedido>
 	<forma-pagamento>
-		<bandeira>VISA</bandeira>
+		<bandeira>visa</bandeira>
 		<produto>A</produto>
 		<parcelas>1</parcelas>
 	</forma-pagamento>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-consulta versao="1.2.0" xmlns="http://ecommerce.cbmp.com.br">
+<requisicao-consulta id="5ef992a0-2980-4f4b-84cd-a9813f947af7" versao="1.2.0" xmlns="http://ecommerce.cbmp.com.br">
 	<tid>10017348980735271001</tid>
 	<dados-ec>
 		<numero>1234</numero>
