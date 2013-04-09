@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-consulta versao="1.2.0" xmlns="http://ecommerce.cbmp.com.br">
-	<tid>$transaction.tid</tid>
+	<tid>10017348980735271001</tid>
 	<dados-ec>
-		<numero>$transaction.bEstablishment.number</numero>
-		<chave>$transaction.bEstablishment.key</chave>
+		<numero>1234</numero>
+		<chave>chave</chave>
 	</dados-ec>
 </requisicao-consulta>
