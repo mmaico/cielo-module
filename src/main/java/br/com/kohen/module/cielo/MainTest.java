@@ -8,7 +8,6 @@ import javax.xml.bind.DatatypeConverter;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import br.com.kohen.module.cielo.entity.BusinessEstablishment;
 import br.com.kohen.module.cielo.entity.CieloOrder;
 import br.com.kohen.module.cielo.entity.CieloPayment;
 import br.com.kohen.module.cielo.entity.CieloResponse;
@@ -27,8 +26,8 @@ public class MainTest {
 	 */
 	public static void main(String[] args) throws ParseException {
 		CieloWebServiceImpl service = new CieloWebServiceImpl();
-//		CieloResponse newTransaction = service.newTransaction(getTransaction());
-		CieloResponse cieloResponse = service.findTransaction("10017348980976562003", getTransaction().getbEstablishment());
+		CieloResponse cieloResponse = service.newTransaction(getTransaction());
+//		CieloResponse cieloResponse = service.findTransaction("10017348980976562003", getTransaction().getbEstablishment());
 		
 		System.out.println(ToStringBuilder.reflectionToString(cieloResponse.getTransaction(), ToStringStyle.MULTI_LINE_STYLE));
 		System.out.println(cieloResponse.getTransaction().getUrlAuthentication());
@@ -42,16 +41,13 @@ public class MainTest {
 			.withAmount(100000l)
 			.withCurrency(Currency.REAL)
 			.withDate(calendar.getTime())
-			.withLang(Language.PT);
-		
-		BusinessEstablishment establishment = BusinessEstablishment.build();
+			.withLang(Language.EN);
 		
 		CieloPayment cieloPayment = CieloPayment.build().withCreditCardType(CreditCardType.VISA)
 			.withPlots(3)
 			.withModality(Modality.INSTALLMENTS_BUSINESS_STABLISHMENT);
 		
 		CieloTransaction cieloTransaction = CieloTransaction.build().withOrder(cieloOrder)
-			.withBusinessEstablishment(establishment)
 			.withPayment(cieloPayment);
 		
 		cieloTransaction.setCapture(Boolean.TRUE);	

@@ -27,6 +27,7 @@ public class CieloTransaction {
 	
 	public CieloTransaction() {
 		this.urlToReturn = PropertiesAcessor.load().getProperty("cielo.url.to.return");
+		this.bEstablishment = BusinessEstablishment.build();
 	}
 	
 	public String getUrlAuthentication() {

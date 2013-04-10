@@ -13,7 +13,7 @@ public class PropertiesAcessorTest {
 		
 		String property = PropertiesAcessor.load().getProperty("cielo.establishment.number");
 		
-		assertThat(property, equalTo("1234"));
+		assertThat(property, equalTo("1001734898"));
 	}
 
 }
