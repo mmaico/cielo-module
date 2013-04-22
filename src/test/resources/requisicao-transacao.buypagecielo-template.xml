@@ -4,7 +4,15 @@
 		<numero>$transaction.bEstablishment.number</numero>
 		<chave>$transaction.bEstablishment.key</chave>
 	</dados-ec>
-	<dados-pedido>
+	#if($transaction.card)
+		<dados-portador>
+			<numero>$transaction.card.number</numero>	
+			<validade>$transaction.card.validity</validade>	
+			<indicador>$transaction.card.getCode()</indicador>	
+			<codigo-seguranca>$transaction.card.securityCode</codigo-seguranca>
+		</dados-portador>
+	#end
+<dados-pedido>
 		<numero>$transaction.order.number</numero>
 		<valor>$transaction.order.amount</valor>
 		<moeda>$transaction.order.currency.getCode()</moeda>

@@ -8,8 +8,9 @@ public class CieloCard {
 	
 	private String validity;
 	
-	private CieloIndicatorSecurityCode securityCode;
-	
+	private CieloIndicatorSecurityCode indicatorSecurityCode;
+
+	private String securityCode;
 
 	public String getNumber() {
 		return number;
@@ -27,12 +28,22 @@ public class CieloCard {
 		this.validity = validity;
 	}
 
-	public CieloIndicatorSecurityCode getSecurityCode() {
+	public CieloIndicatorSecurityCode getIndicatorSecurityCode() {
+		return indicatorSecurityCode;
+	}
+
+	public void setIndicatorSecurityCode(
+			CieloIndicatorSecurityCode indicatorSecurityCode) {
+		this.indicatorSecurityCode = indicatorSecurityCode;
+	}
+
+	public String getSecurityCode() {
 		return securityCode;
 	}
 
-	public void setSecurityCode(CieloIndicatorSecurityCode securityCode) {
+	public void setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
 	}
+
 	
 }
