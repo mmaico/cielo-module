@@ -1,22 +1,22 @@
 package br.com.kohen.module.cielo.enums;
 
-public enum Language {
+public enum CieloLanguage {
 
 	PT, EN;
 
-	public static Language get(String lang) {
+	public static CieloLanguage get(String lang) {
 		
-		for (Language language : values()) {
+		for (CieloLanguage language : values()) {
 			if (language.getName().equalsIgnoreCase(lang))
 				return language;
 		}
 		
-		return Language.PT;
+		return CieloLanguage.PT;
 	}
 
 	public static boolean exist(String lang) {
 		
-		for (Language language : values()) {
+		for (CieloLanguage language : values()) {
 			if (language.getName().equals(lang)) {
 				return true;
 			}	

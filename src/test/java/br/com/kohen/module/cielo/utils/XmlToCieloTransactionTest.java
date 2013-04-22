@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import br.com.kohen.module.cielo.entity.CieloTransaction;
 import br.com.kohen.module.cielo.entity.infra.ReadXmlToTest;
-import br.com.kohen.module.cielo.enums.Currency;
-import br.com.kohen.module.cielo.enums.Language;
+import br.com.kohen.module.cielo.enums.CieloCurrency;
+import br.com.kohen.module.cielo.enums.CieloLanguage;
 
 
 public class XmlToCieloTransactionTest {
@@ -23,8 +23,8 @@ public class XmlToCieloTransactionTest {
 		assertThat(transaction.getTid(), equalTo("10017348980735271001"));
 		assertThat(transaction.getOrder().getNumber(), equalTo("1234"));
 		assertThat(transaction.getOrder().getAmount(), equalTo(100l));
-		assertThat(transaction.getOrder().getCurrency(), equalTo(Currency.REAL));
-		assertThat(transaction.getOrder().getLang(), equalTo(Language.PT));
+		assertThat(transaction.getOrder().getCurrency(), equalTo(CieloCurrency.REAL));
+		assertThat(transaction.getOrder().getLang(), equalTo(CieloLanguage.PT));
 		assertThat(transaction.getUrlAuthentication(), equalTo(urlAuthentication));
 	}
 	
@@ -38,8 +38,8 @@ public class XmlToCieloTransactionTest {
 		assertThat(transaction.getTid(), equalTo("10017348980735271001"));
 		assertThat(transaction.getOrder().getNumber(), equalTo("1234"));
 		assertThat(transaction.getOrder().getAmount(), equalTo(100l));
-		assertThat(transaction.getOrder().getCurrency(), equalTo(Currency.REAL));
-		assertThat(transaction.getOrder().getLang(), equalTo(Language.PT));
+		assertThat(transaction.getOrder().getCurrency(), equalTo(CieloCurrency.REAL));
+		assertThat(transaction.getOrder().getLang(), equalTo(CieloLanguage.PT));
 		assertThat(transaction.getUrlAuthentication(), equalTo(urlAuthentication));
 	}
 

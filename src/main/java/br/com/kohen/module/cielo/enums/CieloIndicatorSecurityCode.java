@@ -1,6 +1,6 @@
 package br.com.kohen.module.cielo.enums;
 
-public enum IndicatorSecurityCode {
+public enum CieloIndicatorSecurityCode {
 
 	INFORMED(1),
 	UNINFORMED(0),
@@ -9,7 +9,7 @@ public enum IndicatorSecurityCode {
 	
 	private short code;
 
-	private IndicatorSecurityCode(int codigo) {
+	private CieloIndicatorSecurityCode(int codigo) {
 		this.code = (short) codigo;
 	}
 

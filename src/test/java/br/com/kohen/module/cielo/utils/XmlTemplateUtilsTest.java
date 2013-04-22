@@ -21,10 +21,10 @@ import br.com.kohen.module.cielo.entity.BusinessEstablishment;
 import br.com.kohen.module.cielo.entity.CieloOrder;
 import br.com.kohen.module.cielo.entity.CieloPayment;
 import br.com.kohen.module.cielo.entity.CieloTransaction;
-import br.com.kohen.module.cielo.enums.CreditCardType;
-import br.com.kohen.module.cielo.enums.Currency;
-import br.com.kohen.module.cielo.enums.Language;
-import br.com.kohen.module.cielo.enums.Modality;
+import br.com.kohen.module.cielo.enums.CieloCreditCardType;
+import br.com.kohen.module.cielo.enums.CieloCurrency;
+import br.com.kohen.module.cielo.enums.CieloLanguage;
+import br.com.kohen.module.cielo.enums.CieloModality;
 import br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction;
 
 public class XmlTemplateUtilsTest {
@@ -54,15 +54,15 @@ public class XmlTemplateUtilsTest {
 
 		CieloOrder cieloOrder = CieloOrder.build().withNumber("12345")
 			.withAmount(100l)
-			.withCurrency(Currency.REAL)
+			.withCurrency(CieloCurrency.REAL)
 			.withDate(calendar.getTime())
-			.withLang(Language.PT);
+			.withLang(CieloLanguage.PT);
 		
 		BusinessEstablishment establishment = BusinessEstablishment.build();
 		
-		CieloPayment cieloPayment = CieloPayment.build().withCreditCardType(CreditCardType.VISA)
+		CieloPayment cieloPayment = CieloPayment.build().withCreditCardType(CieloCreditCardType.VISA)
 			.withPlots(1)
-			.withModality(Modality.DEBIT);
+			.withModality(CieloModality.DEBIT);
 		
 		CieloTransaction cieloTransaction = CieloTransaction.build().withOrder(cieloOrder)
 			.withBusinessEstablishment(establishment)

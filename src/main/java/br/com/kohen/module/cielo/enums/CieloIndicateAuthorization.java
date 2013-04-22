@@ -1,7 +1,7 @@
 package br.com.kohen.module.cielo.enums;
 
 
-public enum IndicateAuthorization {
+public enum CieloIndicateAuthorization {
 
 	AUTHORIZE_DIRECT(3, "Autorizar Direto"),
 	AUTHORIZE_CERTIFIED_NOTCERTIFIED(2, "Autorizar transacao autenticada e nao-autenticada"),
@@ -12,7 +12,7 @@ public enum IndicateAuthorization {
 	
 	private String description;
 	
-	private IndicateAuthorization(int codigo, String description) {
+	private CieloIndicateAuthorization(int codigo, String description) {
 		this.code = (short) codigo;
 		this.description = description;
 	}
@@ -25,9 +25,9 @@ public enum IndicateAuthorization {
 		return this.description;
 	}
 
-	public static IndicateAuthorization valueOf(int code) {
+	public static CieloIndicateAuthorization valueOf(int code) {
 		
-		for (IndicateAuthorization indicator : values()) {
+		for (CieloIndicateAuthorization indicator : values()) {
 			if (indicator.getCode() == code) {
 				return indicator;
 			}

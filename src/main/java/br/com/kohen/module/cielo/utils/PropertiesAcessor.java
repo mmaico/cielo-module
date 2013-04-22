@@ -25,7 +25,7 @@ public class PropertiesAcessor {
 	}
 	
 	static String getFileName() {
-		return "/system-config.properties";
+		return "/payment-config.properties";
 	}
 
 }

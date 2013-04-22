@@ -1,17 +1,17 @@
 package br.com.kohen.module.cielo.enums;
 
-public enum Currency {
+public enum CieloCurrency {
 	REAL(986), DOLAR(000), EURO(000);
 	
 	private Integer code; 
 	
-	Currency(Integer code) {
+	CieloCurrency(Integer code) {
 		this.code = code;
 	}
 	
-	public static Currency getByCode(Integer code) {
+	public static CieloCurrency getByCode(Integer code) {
 		
-		for (Currency currency : values()) {
+		for (CieloCurrency currency : values()) {
 			if (currency.getCode().equals(code)) {
 				return currency;
 			}

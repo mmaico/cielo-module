@@ -1,6 +1,6 @@
 package br.com.kohen.module.cielo.converters;
 
-import br.com.kohen.module.cielo.enums.Currency;
+import br.com.kohen.module.cielo.enums.CieloCurrency;
 
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
@@ -12,7 +12,7 @@ public class CurrencyEnumConverter implements Converter {
 
 	@SuppressWarnings("rawtypes")
 	public boolean canConvert(Class type) {
-		return type.equals(Currency.class);
+		return type.equals(CieloCurrency.class);
 	}
 
 	public void marshal(Object source, HierarchicalStreamWriter write,
@@ -23,7 +23,7 @@ public class CurrencyEnumConverter implements Converter {
 			UnmarshallingContext context) {
 		String currencyCode = reader.getValue();
 		
-		Currency currency = Currency.getByCode(Integer.valueOf(currencyCode));
+		CieloCurrency currency = CieloCurrency.getByCode(Integer.valueOf(currencyCode));
 		
 		return currency;
 	}

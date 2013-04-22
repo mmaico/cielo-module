@@ -1,6 +1,6 @@
 package br.com.kohen.module.cielo.converters;
 
-import br.com.kohen.module.cielo.enums.CreditCardType;
+import br.com.kohen.module.cielo.enums.CieloCreditCardType;
 
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
@@ -12,7 +12,7 @@ public class CardTypeEnumConverter implements Converter {
 
 	@SuppressWarnings("rawtypes")
 	public boolean canConvert(Class type) {
-		return type.equals(CreditCardType.class);
+		return type.equals(CieloCreditCardType.class);
 	}
 
 	public void marshal(Object source, HierarchicalStreamWriter write,
@@ -23,7 +23,7 @@ public class CardTypeEnumConverter implements Converter {
 			UnmarshallingContext context) {
 		String flag = reader.getValue();
 		
-		CreditCardType cardType = CreditCardType.get(flag);
+		CieloCreditCardType cardType = CieloCreditCardType.get(flag);
 		
 		return cardType;
 	}

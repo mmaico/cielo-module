@@ -1,6 +1,6 @@
 package br.com.kohen.module.cielo.enums;
 
-public enum Modality {
+public enum CieloModality {
 
 	CASH_PAYMENT("1", "Credito a Vista"),
 	DEBIT("A", "Debito"),
@@ -12,7 +12,7 @@ public enum Modality {
 	
 	private String description;
 	
-	private Modality(String code, String description) {
+	private CieloModality(String code, String description) {
 		this.code = code;
 		this.description = description;
 	}
@@ -25,9 +25,9 @@ public enum Modality {
 		return description;
 	}
 	
-	public static Modality getByCode(String code) {
+	public static CieloModality getByCode(String code) {
 		
-		for (Modality modality : values()) {
+		for (CieloModality modality : values()) {
 			
 			if (modality.getCode().equalsIgnoreCase(code)) {
 				return modality;

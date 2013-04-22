@@ -1,16 +1,18 @@
 package br.com.kohen.module.cielo.enums;
 
-public enum CreditCardType {
+public enum CieloCreditCardType {
 
 	VISA("visa"),
 	MASTERCARD("mastercard"),
 	ELO("elo"),
 	DINERS("diners"),
-	DISCOVER("discover");
+	DISCOVER("discover"),
+	AMEX("amex");
+	
 	
 	private String type;
 	
-	CreditCardType(String type) {
+	CieloCreditCardType(String type) {
 		this.type = type;
 	}
 
@@ -18,9 +20,9 @@ public enum CreditCardType {
 		return type.toUpperCase();
 	}
 
-	public static CreditCardType get(String type) {
+	public static CieloCreditCardType get(String type) {
 		
-		for (CreditCardType typeEnum : values()) {
+		for (CieloCreditCardType typeEnum : values()) {
 			
 			if (typeEnum.type.equalsIgnoreCase(type)) {
 				return typeEnum;

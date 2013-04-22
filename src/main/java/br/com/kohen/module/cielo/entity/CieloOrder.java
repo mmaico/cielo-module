@@ -2,16 +2,16 @@ package br.com.kohen.module.cielo.entity;
 
 import java.util.Date;
 
-import br.com.kohen.module.cielo.enums.Currency;
-import br.com.kohen.module.cielo.enums.Language;
+import br.com.kohen.module.cielo.enums.CieloCurrency;
+import br.com.kohen.module.cielo.enums.CieloLanguage;
 
 public class CieloOrder {
 
 	private String number;
 	private long amount;
 	private Date date;
-	private Language lang;
-	private Currency currency;
+	private CieloLanguage lang;
+	private CieloCurrency currency;
 	private String description;
 	
 	public String getNumber() {
@@ -32,16 +32,16 @@ public class CieloOrder {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Language getLang() {
+	public CieloLanguage getLang() {
 		return lang;
 	}
-	public void setLang(Language lang) {
+	public void setLang(CieloLanguage lang) {
 		this.lang = lang;
 	}
-	public Currency getCurrency() {
+	public CieloCurrency getCurrency() {
 		return currency;
 	}
-	public void setCurrency(Currency currency) {
+	public void setCurrency(CieloCurrency currency) {
 		this.currency = currency;
 	}
 	
@@ -59,7 +59,7 @@ public class CieloOrder {
 		return this;
 	}
 	
-	public CieloOrder withCurrency(Currency currency) {
+	public CieloOrder withCurrency(CieloCurrency currency) {
 		this.currency = currency;
 		return this;
 	}
@@ -69,7 +69,7 @@ public class CieloOrder {
 		return this;
 	}
 	
-	public CieloOrder withLang(Language lang) {
+	public CieloOrder withLang(CieloLanguage lang) {
 		this.lang = lang;
 		return this;
 	}

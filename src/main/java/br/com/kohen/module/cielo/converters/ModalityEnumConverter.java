@@ -1,6 +1,6 @@
 package br.com.kohen.module.cielo.converters;
 
-import br.com.kohen.module.cielo.enums.Modality;
+import br.com.kohen.module.cielo.enums.CieloModality;
 
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
@@ -12,7 +12,7 @@ public class ModalityEnumConverter implements Converter {
 
 	@SuppressWarnings("rawtypes")
 	public boolean canConvert(Class type) {
-		return type.equals(Modality.class);
+		return type.equals(CieloModality.class);
 	}
 
 	public void marshal(Object source, HierarchicalStreamWriter write,
@@ -23,7 +23,7 @@ public class ModalityEnumConverter implements Converter {
 			UnmarshallingContext context) {
 		String modalityCode = reader.getValue();
 		
-		Modality modality = Modality.getByCode(modalityCode);
+		CieloModality modality = CieloModality.getByCode(modalityCode);
 		
 		return modality;
 	}
