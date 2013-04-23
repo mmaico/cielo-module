@@ -39,7 +39,7 @@ Exemplo de uso para integração buyCielo Page
     
    cielo.establishment.number=1001734898
    cielo.establishment.key=e84827130b9837473681c2787007da5914d6359947015a5cdb2b8843db0fa832
-   cielo.url.to.return=http://localhost/back
+   cielo.url.to.return=http://localhost/back                                                               
    cielo.url.webservice=https://qasecommerce.cielo.com.br/servicos/ecommwsec.do
    
    
