@@ -39,9 +39,10 @@ Exemplo de uso para integração buyCielo Page
     
    cielo.establishment.number=1001734898
    cielo.establishment.key=e84827130b9837473681c2787007da5914d6359947015a5cdb2b8843db0fa832
-   cielo.url.to.return=http://localhost/back
    cielo.url.webservice=https://qasecommerce.cielo.com.br/servicos/ecommwsec.do
-  
+   cielo.url.to.return=http://localhost/back
+   
+   
    Para recuprar uma venda com o TID devolvido na resposta da criação use:
     
     String tid = "10017348980976562003";
