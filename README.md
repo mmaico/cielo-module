@@ -43,7 +43,7 @@ Exemplo de uso para integração buyCielo Page
    cielo.url.webservice=https://qasecommerce.cielo.com.br/servicos/ecommwsec.do
    
    
-   Para recuprar uma venda com o TID devolvido na resposta da criação use:
+   Para recuperar uma venda com o TID devolvido na resposta da criação use:
     
     String tid = "10017348980976562003";
     //getTransaction().getbEstablishment() - Essa chamada ira recuperar os dados do estabelecimento do arquivo cielo-config.properties.
