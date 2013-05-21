@@ -25,6 +25,6 @@
 		<parcelas>$transaction.payment.plots</parcelas>
 	</forma-pagamento>
 	<url-retorno>$transaction.urlToReturn</url-retorno>
-	<autorizar>1</autorizar>
+	<autorizar>2</autorizar>
 	<capturar>$transaction.capture</capturar>
 </requisicao-transacao>
