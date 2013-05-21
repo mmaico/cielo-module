@@ -155,6 +155,30 @@ public class CieloWebServiceImplTest {
 		assertThat(diff.similar(), Matchers.is(Boolean.TRUE));
 	}
 	
+	@Test
+	public void shouldRenderResponseStatus() throws ParseException, SAXException, IOException {
+		
+		String tid = "10017348980735271001";
+		
+		String xmlToSend = ReadXmlToTest.read("/xmlExpected/requisicao-consulta-template.xml");
+		String willReturn = ReadXmlToTest.read("/xmlReturn/read-status-return.xml");
+		
+		given(this.requestMock.bodyForm(Mockito.anyCollection())).willReturn(requestMock);
+		given(this.contectMock.asString()).willReturn(willReturn);
+
+		CieloResponse response = service.findTransaction(tid, getTransactionStub().getbEstablishment()) ;
+		
+		response.getTransaction();
+		
+		verify(this.requestMock).bodyForm(listNameValueCaptor.capture());
+		
+		List<NameValuePair> listCaptured = listNameValueCaptor.getValue();
+		Diff diff = new Diff(xmlToSend, listCaptured.get(0).getValue());
+		
+		assertThat(listCaptured.get(0).getName(), equalTo("mensagem"));
+		assertThat(diff.similar(), Matchers.is(Boolean.TRUE));
+	}
+	
 	private CieloTransaction getTransactionStub() throws ParseException {
 		Calendar calendar = DatatypeConverter.parseDateTime("2013-12-07T11:43:37");
 
