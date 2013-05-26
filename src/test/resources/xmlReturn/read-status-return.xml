@@ -22,4 +22,12 @@
 		<valor>0</valor>
 		<eci>7</eci>
 	</autenticacao>
+	<autorizacao>
+		<codigo>5</codigo>
+		<mensagem>Autorização negada</mensagem>
+		<data-hora>2013-05-25T17:12:12.883-03:00</data-hora>
+		<valor>100</valor>
+		<lr>60</lr>
+		<nsu>000078</nsu>
+	</autorizacao>
 </transacao>

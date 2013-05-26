@@ -5,6 +5,7 @@ import br.com.kohen.module.cielo.converters.CurrencyEnumConverter;
 import br.com.kohen.module.cielo.converters.DateConverter;
 import br.com.kohen.module.cielo.converters.ModalityEnumConverter;
 import br.com.kohen.module.cielo.entity.CieloAuthentication;
+import br.com.kohen.module.cielo.entity.CieloAuthorization;
 import br.com.kohen.module.cielo.entity.CieloOrder;
 import br.com.kohen.module.cielo.entity.CieloPayment;
 import br.com.kohen.module.cielo.entity.CieloTransaction;
@@ -39,6 +40,8 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(CieloTransaction.class, "urlAuthentication", "url-autenticacao");
 		xStream.aliasAttribute(CieloTransaction.class, "payment", "forma-pagamento");
 		xStream.aliasAttribute(CieloTransaction.class, "authentication", "autenticacao");
+		xStream.aliasAttribute(CieloTransaction.class, "authorization", "autorizacao");
+		
 		
 		xStream.aliasAttribute(CieloOrder.class, "date", "data-hora");
 		xStream.aliasAttribute(CieloOrder.class, "number", "numero");
@@ -57,6 +60,12 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(CieloAuthentication.class, "value", "valor");
 		xStream.aliasAttribute(CieloAuthentication.class, "eci", "eci");
 		
+		xStream.aliasAttribute(CieloAuthorization.class, "code", "codigo");
+		xStream.aliasAttribute(CieloAuthorization.class, "message", "mensagem");
+		xStream.aliasAttribute(CieloAuthorization.class, "date", "data-hora");
+		xStream.aliasAttribute(CieloAuthorization.class, "value", "valor");
+		xStream.aliasAttribute(CieloAuthorization.class, "lr", "lr");
+		xStream.aliasAttribute(CieloAuthorization.class, "nsu", "nsu");
 	}
 	
 	public static XmlToCieloTransaction getInstance() {

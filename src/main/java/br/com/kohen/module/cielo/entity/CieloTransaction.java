@@ -25,6 +25,7 @@ public class CieloTransaction {
 	private CieloPayment payment;
 	private Boolean capture = Boolean.FALSE;
 	private CieloAuthentication authentication;
+	private CieloAuthorization authorization;
 	
 	public CieloTransaction() {
 		this.urlToReturn = PropertiesAcessor.load().getProperty("cielo.url.to.return");
@@ -151,6 +152,14 @@ public class CieloTransaction {
 
 	public void setAuthentication(CieloAuthentication authentication) {
 		this.authentication = authentication;
+	}
+
+	public CieloAuthorization getAuthorization() {
+		return authorization;
+	}
+
+	public void setAuthorization(CieloAuthorization authorization) {
+		this.authorization = authorization;
 	}
 
 	public String toXml(TemplateTransaction templateTransaction) {

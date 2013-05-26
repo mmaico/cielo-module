@@ -17,6 +17,6 @@
 		<parcelas>1</parcelas>
 	</forma-pagamento>
 	<url-retorno>http://localhost/back</url-retorno>
-	<autorizar>1</autorizar>
+	<autorizar>2</autorizar>
 	<capturar>false</capturar>
 </requisicao-transacao>
