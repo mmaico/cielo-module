@@ -30,4 +30,10 @@
 		<lr>60</lr>
 		<nsu>000078</nsu>
 	</autorizacao>
+	<captura>
+		<codigo>6</codigo>
+		<mensagem>Transacao capturada com sucesso</mensagem>
+		<data-hora>2013-08-04T01:17:15.934-03:00</data-hora>
+		<valor>100</valor>
+	</captura>
 </transacao>

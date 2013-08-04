@@ -5,6 +5,7 @@ import br.com.kohen.module.cielo.converters.CurrencyEnumConverter;
 import br.com.kohen.module.cielo.converters.DateConverter;
 import br.com.kohen.module.cielo.converters.ModalityEnumConverter;
 import br.com.kohen.module.cielo.entity.Cancellation;
+import br.com.kohen.module.cielo.entity.CieloCaptureInfo;
 import br.com.kohen.module.cielo.entity.CieloAuthentication;
 import br.com.kohen.module.cielo.entity.CieloAuthorization;
 import br.com.kohen.module.cielo.entity.CieloOrder;
@@ -45,6 +46,7 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(CieloTransaction.class, "authentication", "autenticacao");
 		xStream.aliasAttribute(CieloTransaction.class, "authorization", "autorizacao");
 		xStream.aliasAttribute(CieloTransaction.class, "cancellations", "cancelamentos");
+		xStream.aliasAttribute(CieloTransaction.class, "captureInfo", "captura");
 		
 		
 		xStream.aliasAttribute(CieloOrder.class, "date", "data-hora");
@@ -75,6 +77,11 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(Cancellation.class, "message", "mensagem");
 		xStream.aliasAttribute(Cancellation.class, "date", "data-hora");
 		xStream.aliasAttribute(Cancellation.class, "value", "valor");
+		
+		xStream.aliasAttribute(CieloCaptureInfo.class, "code", "codigo");
+		xStream.aliasAttribute(CieloCaptureInfo.class, "message", "mensagem");
+		xStream.aliasAttribute(CieloCaptureInfo.class, "date", "data-hora");
+		xStream.aliasAttribute(CieloCaptureInfo.class, "value", "valor");
 		
 	}
 	

@@ -30,6 +30,8 @@ public class CieloTransaction {
 	
 	private List<Cancellation> cancellations;
 	
+	private CieloCaptureInfo captureInfo;
+	
 	public CieloTransaction() {
 		this.urlToReturn = PropertiesAcessor.load().getProperty("cielo.url.to.return");
 		this.bEstablishment = BusinessEstablishment.build();
@@ -184,6 +186,14 @@ public class CieloTransaction {
 
 	public void setCancellations(List<Cancellation> cancellations) {
 		this.cancellations = cancellations;
+	}
+	
+	public CieloCaptureInfo getCaptureInfo() {
+		return captureInfo;
+	}
+
+	public void setCaptureInfo(CieloCaptureInfo captureInfo) {
+		this.captureInfo = captureInfo;
 	}
 
 	public Boolean isNullObject() {
