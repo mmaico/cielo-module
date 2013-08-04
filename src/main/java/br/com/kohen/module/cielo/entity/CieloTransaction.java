@@ -1,6 +1,7 @@
 package br.com.kohen.module.cielo.entity;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -26,6 +27,8 @@ public class CieloTransaction {
 	private Boolean capture = Boolean.FALSE;
 	private CieloAuthentication authentication;
 	private CieloAuthorization authorization;
+	
+	private List<Cancellation> cancellations;
 	
 	public CieloTransaction() {
 		this.urlToReturn = PropertiesAcessor.load().getProperty("cielo.url.to.return");
@@ -175,6 +178,14 @@ public class CieloTransaction {
 		return new CieloTransaction();
 	}
 	
+	public List<Cancellation> getCancellations() {
+		return cancellations;
+	}
+
+	public void setCancellations(List<Cancellation> cancellations) {
+		this.cancellations = cancellations;
+	}
+
 	public Boolean isNullObject() {
 		return EqualsBuilder.reflectionEquals(this, new CieloTransaction());
 	}

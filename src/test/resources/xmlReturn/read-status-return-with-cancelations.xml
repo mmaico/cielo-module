@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao versao="1.2.0" id="5ef992a0-2980-4f4b-84cd-a9813f947af7" xmlns="http://ecommerce.cbmp.com.br">
+	<tid>10208177440000441001</tid>
+	<pan>Jw+K9+fVW3CWUGOcfnD5UnlI+GR6moDD/MeKInTH4ro=</pan>
+	<dados-pedido>
+		<numero>3</numero>
+		<valor>100</valor>
+		<moeda>986</moeda>
+		<data-hora>2013-05-20T23:24:47.495-03:00</data-hora>
+		<idioma>PT</idioma>
+	</dados-pedido>
+	<forma-pagamento>
+		<bandeira>visa</bandeira>
+		<produto>1</produto>
+		<parcelas>1</parcelas>
+	</forma-pagamento>
+	<status>3</status>
+	<autenticacao>
+		<codigo>3</codigo>
+		<mensagem>Nao autenticada</mensagem>
+		<data-hora>2013-05-20T23:26:47.056-03:00</data-hora>
+		<valor>0</valor>
+		<eci>7</eci>
+	</autenticacao>
+	<autorizacao>
+		<codigo>5</codigo>
+		<mensagem>Autorização negada</mensagem>
+		<data-hora>2013-05-25T17:12:12.883-03:00</data-hora>
+		<valor>100</valor>
+		<lr>60</lr>
+		<nsu>000078</nsu>
+	</autorizacao>
+	<cancelamentos>
+		<cancelamento>
+			<codigo>9</codigo>
+			<mensagem>Cancelamento por timeout do usuario</mensagem>
+			<data-hora>2013-08-03T20:48:20.935-03:00</data-hora>
+			<valor>6000</valor>
+		</cancelamento>
+	</cancelamentos>
+</transacao>
