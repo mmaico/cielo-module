@@ -32,7 +32,7 @@ public class XmlTemplateUtilsTest {
 
 	@Test
 	public void shouldMergeTemplateWithParameters() throws ParseException, IOException, SAXException {
-		InputStream inputStream = XmlTemplateUtilsTest.class.getResourceAsStream("/xmlExpected/requisicao-transacao.buypagecielo-template.xml");
+		InputStream inputStream = XmlTemplateUtilsTest.class.getResourceAsStream("/xmlExpected/requisicao-transacao-template.xml");
 		String templateExpected = IOUtils.toString(inputStream);
 		CieloTransaction transactionStub = getTransactionStub();
 		

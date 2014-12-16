@@ -97,7 +97,7 @@ public class CieloWebServiceImplTest {
 	@Test
 	public void shouldVerifyXmlToSend() throws ParseException, SAXException, IOException {
 		
-		String templateToSendExpected = ReadXmlToTest.read("/xmlExpected/requisicao-transacao.buypagecielo-template.xml");
+		String templateToSendExpected = ReadXmlToTest.read("/xmlExpected/requisicao-transacao-template.xml");
 		String returnWillBe = ReadXmlToTest.read("/xmlReturn/newTrasaction-success-buy-cielo-page-return.xml");
 		
 		given(this.requestMock.bodyForm(Mockito.anyCollection())).willReturn(requestMock);

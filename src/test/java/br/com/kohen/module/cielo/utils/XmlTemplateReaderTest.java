@@ -16,7 +16,7 @@ public class XmlTemplateReaderTest {
 	
 	@Test
 	public void shouldReturnTheTemplateOfTransactionByCieloPage() throws IOException {
-		InputStream inputStream = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao.buypagecielo-template.xml");
+		InputStream inputStream = XmlTemplateReader.class.getResourceAsStream("/requisicao-transacao-template.xml");
 		
 		String contentTemplate = XmlTemplateReader.get(TemplateTransaction.NEW);
 		
