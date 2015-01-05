@@ -1,38 +1,48 @@
 cielo-module
 ============
 
-Api de integracao com o sistema de pagamento da Cielo desenvolvida em JAVA.
+Api de integracao com o sistema de pagamento da Cielo desenvolvida em Java.
 
 Exemplo de uso para integração buyCielo Page
 
-      public static void main(String[] args) throws ParseException {
-            CieloWebServiceImpl service = new CieloWebServiceImpl();
-            CieloResponse cieloResponse = service.newTransaction(getTransaction());
-          
-            System.out.println(ToStringBuilder.reflectionToString(cieloResponse.getTransaction(), ToStringStyle.MULTI_LINE_STYLE));
-            System.out.println(cieloResponse.getTransaction().getUrlAuthentication());
-      }
 
-      private static CieloTransaction getTransaction() throws ParseException {
-            Calendar calendar = DatatypeConverter.parseDateTime("2013-04-09T11:43:37");
+    import br.com.kohen.module.cielo.entity.*;
+    import br.com.kohen.module.cielo.enums.*;
+    import br.com.kohen.module.cielo.ws.impl.CieloWebServiceImpl;
+    import org.apache.commons.lang3.builder.ToStringBuilder;
+    import org.apache.commons.lang3.builder.ToStringStyle;
 
-            CieloOrder cieloOrder = CieloOrder.build().withNumber("12345")
-                        .withAmount(100000l)
-                        .withCurrency(Currency.REAL)
-                        .withDate(calendar.getTime())
-                        .withLang(Language.EN);
+    import javax.xml.bind.DatatypeConverter;
+    import java.text.ParseException;
+    import java.util.Calendar;
 
-            CieloPayment cieloPayment = CieloPayment.build().withCreditCardType(CreditCardType.VISA)
-                        .withPlots(3)
-                        .withModality(Modality.INSTALLMENTS_BUSINESS_STABLISHMENT);
+    public static void main(String[] args) throws ParseException {
+        CieloWebServiceImpl service = new CieloWebServiceImpl();
+        CieloResponse cieloResponse = service.newTransaction(getTransaction());
 
-            CieloTransaction cieloTransaction = CieloTransaction.build().withOrder(cieloOrder)
-                        .withPayment(cieloPayment);
+        System.out.println(ToStringBuilder.reflectionToString(cieloResponse.getTransaction(), ToStringStyle.MULTI_LINE_STYLE));
+        System.out.println(cieloResponse.getTransaction().getUrlAuthentication());
+    }
 
-            cieloTransaction.setCapture(Boolean.TRUE);
+    private static CieloTransaction getTransaction() throws ParseException {
+        Calendar calendar = DatatypeConverter.parseDateTime("2013-04-09T11:43:37");
+        CieloOrder cieloOrder = CieloOrder.build().withNumber("12345")
+            .withAmount(100000l)
+            .withCurrency(CieloCurrency.REAL)
+            .withDate(calendar.getTime())
+            .withLang(CieloLanguage.EN);
 
-            return cieloTransaction;
-     }
+        CieloPayment cieloPayment = CieloPayment.build().withCreditCardType(CieloCreditCardType.VISA)
+            .withPlots(3)
+            .withModality(CieloModality.INSTALLMENTS_BUSINESS_STABLISHMENT);
+
+        CieloTransaction cieloTransaction = CieloTransaction.build().withOrder(cieloOrder)
+            .withPayment(cieloPayment);
+
+        cieloTransaction.setCapture(Boolean.TRUE);
+
+        return cieloTransaction;
+    }
     
    A api irá buscar as configurações dentro do arquivo cielo-config.properties dentro do seu resources (src/java/resources)
    segue as chaves que deve estar no arquivo:
