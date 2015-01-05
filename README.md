@@ -1,7 +1,7 @@
 cielo-module
 ============
 
-Api de integracao com o sistema de pagamento da Cielo desenvolvida em Java.
+API de integracao com o sistema de pagamento da Cielo desenvolvida em Java.
 
 Exemplo de uso para integração buyCielo Page
 
@@ -43,7 +43,7 @@ private static CieloTransaction getTransaction() throws ParseException {
 
     return cieloTransaction;
 }
-   ```
+```
 
    A api irá buscar as configurações dentro do arquivo cielo-config.properties dentro do seu resources (src/java/resources)
    segue as chaves que deve estar no arquivo:
