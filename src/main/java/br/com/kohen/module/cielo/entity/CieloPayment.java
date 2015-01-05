@@ -65,4 +65,9 @@ public class CieloPayment {
 		return this;
 	}
 	
+	public CieloPayment withCieloCard(CieloCard card) {
+		this.card = card;
+		return this;
+	}
+	
 }
