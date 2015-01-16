@@ -55,6 +55,8 @@ public class XmlToCieloTransaction {
 		xStream.aliasAttribute(CieloOrder.class, "currency", "moeda");
 		xStream.aliasAttribute(CieloOrder.class, "lang", "idioma");
 		xStream.aliasAttribute(CieloOrder.class, "description", "descricao");
+		xStream.aliasAttribute(CieloOrder.class, "airportTaxes", "taxa-embarque");
+		xStream.aliasAttribute(CieloOrder.class, "softDescriptor", "soft-descriptor");
 		
 		xStream.aliasAttribute(CieloPayment.class, "creditCardType", "bandeira");
 		xStream.aliasAttribute(CieloPayment.class, "modality", "produto");
@@ -89,6 +91,12 @@ public class XmlToCieloTransaction {
 		return INSTANCE;
 	}
 	
+	
+	/**
+	 * Creates a CieloTransaction from a XML string.
+	 * @param xml The XML containing the data to fill the CieloTransaction object.
+	 * @return The CieloTransaction object or null if the XML is not valid.
+	 */
 	public CieloTransaction create(String xml) {
 		CieloTransaction transaction = CieloTransaction.nullObject();
 		

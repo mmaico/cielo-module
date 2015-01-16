@@ -2,6 +2,7 @@ package br.com.kohen.module.cielo.entity;
 
 import br.com.kohen.module.cielo.enums.CieloCreditCardType;
 import br.com.kohen.module.cielo.enums.CieloModality;
+import br.com.kohen.module.cielo.utils.PropertiesAcessor;
 
 public class CieloPayment {
 
@@ -13,6 +14,10 @@ public class CieloPayment {
 	
 	private Integer plots = 1;
 	
+	public CieloPayment() {
+		String modalityString = PropertiesAcessor.load().getProperty("cieloPayment.modality");
+		if(modalityString!=null) this.modality = CieloModality.valueOf(modalityString);
+	}
 	
 	public CieloCreditCardType getCreditCardType() {
 		return creditCardType;
@@ -42,12 +47,25 @@ public class CieloPayment {
 		return card;
 	}
 
+	/**
+	 * The credit card to be sent with the transaction.
+	 * Used only in BuyPage Loja mode.
+	 * @param card
+	 */
 	public void setCard(CieloCard card) {
 		this.card = card;
 	}
 	
 	public static CieloPayment build() {
 		return new CieloPayment();
+	}
+	
+	/**
+	 * @see #setCard(CieloCard)
+	 */
+	public CieloPayment withCard(CieloCard card){
+		this.card = card;
+		return this;
 	}
 	
 	public CieloPayment withCreditCardType(CieloCreditCardType type) {

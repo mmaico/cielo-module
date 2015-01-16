@@ -11,7 +11,7 @@ public class PropertiesAcessorTest {
 	@Test
 	public void shouldReadTheProperties() {
 		
-		String property = PropertiesAcessor.load().getProperty("cielo.establishment.number");
+		String property = PropertiesAcessor.load().getProperty("businessEstablishment.number");
 		
 		assertThat(property, equalTo("1001734898"));
 	}

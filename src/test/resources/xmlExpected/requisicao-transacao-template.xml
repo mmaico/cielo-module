@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-transacao versao="1.2.0" id="6560a94c-663b-4aec-9a45-e45f278e00b4" xmlns="http://ecommerce.cbmp.com.br">
+<requisicao-transacao versao="1.2.1" id="a97ab62a-7956-41ea-b03f-c2e9f612c293" xmlns="http://ecommerce.cbmp.com.br">
 	<dados-ec>
 		<numero>1001734898</numero>
 		<chave>e84827130b9837473681c2787007da5914d6359947015a5cdb2b8843db0fa832</chave>
 	</dados-ec>
-	<dados-pedido>
+		<dados-pedido>
 		<numero>12345</numero>
 		<valor>100</valor>
 		<moeda>986</moeda>
 		<data-hora>2013-12-07T11:43:37</data-hora>
-		<idioma>PT</idioma>
-	</dados-pedido>
+							<idioma>PT</idioma>
+							</dados-pedido>
 	<forma-pagamento>
 		<bandeira>visa</bandeira>
 		<produto>A</produto>

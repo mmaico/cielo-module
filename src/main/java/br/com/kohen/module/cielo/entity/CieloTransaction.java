@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 
+import br.com.kohen.module.cielo.enums.CieloIndicateAuthorization;
 import br.com.kohen.module.cielo.utils.PropertiesAcessor;
 import br.com.kohen.module.cielo.utils.XmlTemplateReader;
 import br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction;
@@ -19,6 +20,7 @@ public class CieloTransaction {
 	private String tid;
 	private short status;
 	private String pan;
+	private CieloIndicateAuthorization indicateAuthorization;
 	
 	private CieloOrder order;
 	
@@ -33,7 +35,11 @@ public class CieloTransaction {
 	private CieloCaptureInfo captureInfo;
 	
 	public CieloTransaction() {
-		this.urlToReturn = PropertiesAcessor.load().getProperty("cielo.url.to.return");
+		String indicateAuthorizationString = PropertiesAcessor.load().getProperty("cieloTransaction.indicateAuthorization");
+		if(indicateAuthorizationString!=null) indicateAuthorization = CieloIndicateAuthorization.valueOf(indicateAuthorizationString);
+		
+		this.urlToReturn = PropertiesAcessor.load().getProperty("cieloTransaction.urlToReturn");
+		this.capture = Boolean.valueOf(PropertiesAcessor.load().getProperty("cieloTransaction.capture"));
 		this.bEstablishment = BusinessEstablishment.build();
 	}
 	
@@ -138,6 +144,11 @@ public class CieloTransaction {
 		return this;
 	}
 	
+	public CieloTransaction withIndicateAuthorization(CieloIndicateAuthorization indicateAuthorization) {
+		this.indicateAuthorization = indicateAuthorization;
+		return this;
+	}
+	
 	public CieloTransaction capture() {
 		this.capture = Boolean.TRUE;
 		return this;
@@ -176,6 +187,10 @@ public class CieloTransaction {
 		return XmlTemplateUtils.mergeTemplateIntoString(template, params);
 	}
 	
+	/**
+	 * Creates a empty CieloTransaction
+	 * @return CieloTransaction object
+	 */
 	public static CieloTransaction nullObject() {
 		return new CieloTransaction();
 	}
@@ -194,6 +209,14 @@ public class CieloTransaction {
 
 	public void setCaptureInfo(CieloCaptureInfo captureInfo) {
 		this.captureInfo = captureInfo;
+	}
+
+	public CieloIndicateAuthorization getIndicateAuthorization() {
+		return indicateAuthorization;
+	}
+
+	public void setIndicateAuthorization(CieloIndicateAuthorization indicateAuthorization) {
+		this.indicateAuthorization = indicateAuthorization;
 	}
 
 	public Boolean isNullObject() {
