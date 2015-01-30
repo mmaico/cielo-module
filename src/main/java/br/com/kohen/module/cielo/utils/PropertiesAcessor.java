@@ -8,19 +8,20 @@ import br.com.kohen.module.cielo.exception.PropertiesNotFoundException;
 
 public class PropertiesAcessor {
 
+	private static Properties properties;
 	
 	public static Properties load() {
-		
-		Properties properties;
-		try {
-			InputStream inputStream = PropertiesAcessor.class.getResourceAsStream(getFileName());
-			
-			properties = new Properties();
-			properties.load(inputStream);
-		} catch (IOException e) {
-			throw new PropertiesNotFoundException(e);
+		if(properties == null){
+			try {
+				InputStream inputStream = PropertiesAcessor.class.getResourceAsStream(getFileName());
+				
+				properties = new Properties();
+				properties.load(inputStream);
+			} catch (IOException e) {
+				properties = null;
+				throw new PropertiesNotFoundException(e);
+			}
 		}
-		
 		return properties;
 	}
 	

@@ -10,8 +10,8 @@ public class BusinessEstablishment {
 	private String key;
 
 	private BusinessEstablishment(){
-		this.number = PropertiesAcessor.load().getProperty("cielo.establishment.number");
-		this.key = PropertiesAcessor.load().getProperty("cielo.establishment.key");
+		this.number = PropertiesAcessor.load().getProperty("businessEstablishment.number");
+		this.key = PropertiesAcessor.load().getProperty("businessEstablishment.key");
 	}
 	
 	public String getNumber() {

@@ -1,8 +1,5 @@
 package br.com.kohen.module.cielo.ws.impl;
 
-import static br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction.CHECK;
-import static br.com.kohen.module.cielo.utils.XmlTemplateReader.TemplateTransaction.NEW;
-
 import java.io.IOException;
 
 import org.apache.http.client.ClientProtocolException;
@@ -22,12 +19,19 @@ public class CieloWebServiceImpl implements CieloWebService {
 	private static final int ONE_SECOUND = 1000;
 	private static final int _CONNECTION_TIMEOUT = 10 * ONE_SECOUND;
 
-
-	private static final String URL_WS = PropertiesAcessor.load().getProperty("cielo.url.webservice");
+	private final String URL_WS;
+	
+	public CieloWebServiceImpl() {
+		URL_WS = PropertiesAcessor.load().getProperty("cielo.url.webservice");
+	}
+	
+	public CieloWebServiceImpl(String urlWebService) {
+		URL_WS = urlWebService;
+	}
 	
 	public CieloResponse newTransaction(CieloTransaction transaction) {
 		
-		return callWS(transaction, NEW);
+		return callWS(transaction, TemplateTransaction.NEW);
 	}
 
 	public CieloResponse findTransaction(String tid, BusinessEstablishment bEstablishment) {
@@ -36,7 +40,7 @@ public class CieloWebServiceImpl implements CieloWebService {
 			.withBusinessEstablishment(bEstablishment)
 			.withTid(tid);
 		
-		return callWS(transaction, CHECK);
+		return callWS(transaction, TemplateTransaction.CHECK);
 	}
 	
 	private CieloResponse callWS(CieloTransaction transaction, TemplateTransaction template) {
