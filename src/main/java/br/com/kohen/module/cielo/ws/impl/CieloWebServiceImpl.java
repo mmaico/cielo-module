@@ -25,10 +25,6 @@ public class CieloWebServiceImpl implements CieloWebService {
 		URL_WS = PropertiesAcessor.load().getProperty("cielo.url.webservice");
 	}
 	
-	public CieloWebServiceImpl(String urlWebService) {
-		URL_WS = urlWebService;
-	}
-	
 	public CieloResponse newTransaction(CieloTransaction transaction) {
 		
 		return callWS(transaction, TemplateTransaction.NEW);
